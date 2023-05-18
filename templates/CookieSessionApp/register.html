@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+{% block content %}
+
+<!-- 製作表單-->
+<br>
+<h2>註冊帳號</h2>
+<br>
+<form action="." method="POST" name="form1">
+	{% csrf_token %}
+	<table class="table">
+		<tr>
+			<th>帳號</th><td><input type="text" name="username" /></td>
+		</tr>
+		<tr>
+			<th>密碼</th><td><input type="text" name="password" /></td>
+		</tr>
+		<tr>
+			<th>E-mail</th><td><input type="text" name="email" /></td>
+		</tr>
+		<tr>
+			<th>First name</th><td><input type="text" name="first_name" /></td>
+		</tr>
+		<tr>
+			<th>Last name</th><td><input type="text" name="last_name" /></td>
+		</tr>
+	
+		<tr>
+			<th colspan="2" align="center">
+				<input type="submit" class="btn btn-primary" name="button" id="button" value="送出" />
+				<input type="reset" class="btn btn-light"name="button2" id="button2" value="重設" />
+				<a href = "/login/"><input type="button" class="btn btn-dark"value="返回登入"></button></a></div>
+			</th>
+		</tr>
+	</table>
+		
+		<span style="color:red">{{mess}}</span>
+	
+</form>
+
+{% endblock %}

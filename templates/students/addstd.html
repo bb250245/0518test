@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Add Students{% endblock %}
+{% block content %}
+
+<!-- 製作表單-->
+<h2>student 資料表新增</h2>
+<form action="/post/" method="POST" name="addstd">
+	{% csrf_token %}
+	<table class="table">
+		<tr>
+			<th>姓名</th><td><input type="text" name="stdName" /></td>
+		</tr>
+		<tr>
+			<th>學號</th><td><input type="text" name="stdID" /></td>
+		</tr>
+	
+		<tr>
+			<th>性別</th>
+			<td>
+				<input type="radio" name="stdSex" value="男"> 男
+				<input type="radio" name="stdSex" value="女"> 女
+			</td>
+		</tr>
+		<tr>
+			<th>生日</th><td><input type="text" name="stdBirth" /></td>
+		</tr>
+		<tr>
+			<th>電子信箱</th><td><input type="email" name="stdEmail" /></td>
+		</tr>
+		<tr>
+			<th>連絡電話</th><td><input type="tel" name="stdPhone" /></td>
+		</tr>
+		<tr>
+			<th>地址</th><td><input type="text" name="stdAddress" /></td>
+		</tr>
+		<tr>
+			<th colspan="2" align="center">
+				<input type="submit" class="btn btn-primary" name="button" id="button" value="送出" />
+				<input type="reset" class="btn btn-outline-dark"name="button2" id="button2" value="重設" /></th>
+			</tr>
+	</table>
+		
+		<span style="color:red">{{mess}}</span>
+	
+</form>
+
+{% endblock %}

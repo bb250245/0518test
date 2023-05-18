@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}登入頁面{% endblock %}
+{% block content %}
+<br>
+<h2>登入</h2>
+<br>
+	<form action="." method="POST" name="form1">
+		{% csrf_token %}
+		{% if status == "login" %}
+			<div><a href="/logout/">登出系統</a></div>
+		{% else %}
+		<table class="table">
+			<tr>
+				<th>帳號</th><td><input type="text" name="username" /></td>
+			</tr>
+			<tr>
+				<th>密碼</th><td><input type="text" name="password" /></td>
+			</tr>
+		</table>
+
+			<div><input type="submit" class="btn btn-outline-primary" id="button" value="登入" />
+			<a href = "/register/"><input type="button" class="btn btn-outline-dark"value="註冊"></button></a></div>
+		{% endif %}   
+		<span style="color:red">{{mess}}</span>
+	</form>
+{% endblock %}
